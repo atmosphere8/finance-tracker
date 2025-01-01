@@ -1,0 +1,36 @@
+@use '$styles/colors' as colors
+@use '$styles/sizes' as sizes 
+
+.button
+    border-radius: sizes.$size-10px
+    transition: background 0.3s, border 0.3s
+    padding: sizes.$size-4px sizes.$size-16px
+    gap: sizes.$size-8px
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    width: fit-content
+
+    &:not(:has(> span))
+        padding: sizes.$size-4px
+
+    &.red
+        background: colors.$red
+        color: colors.$white
+        border: 1px solid colors.$red
+
+        &:hover
+            background: colors.$red-transparent-50
+
+    &.frost
+        background: colors.$frost
+        color: colors.$black
+        border: 1px solid colors.$frost
+
+        &:hover
+            background: colors.$frost-transparent-50
+
+    &.transparent
+        color: colors.$black
+        background: transparent

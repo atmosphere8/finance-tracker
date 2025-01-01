@@ -1,7 +1,5 @@
-export interface ITransaction {
-  value: string
-  _id: string
-}
+//types
+import { ITransaction } from "$entities/Transaction/types"
 
 export interface ITransactions {
   data: ITransaction[]

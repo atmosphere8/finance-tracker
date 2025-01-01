@@ -1,0 +1,25 @@
+@use '$styles/colors' as colors
+@use '$styles/sizes' as sizes 
+
+.transaction
+    display: flex
+    flex-direction: column
+    width: 100%
+    gap: sizes.$size-16px
+    padding: sizes.$size-8px sizes.$size-16px
+    border: 1px solid colors.$black
+    border-radius: sizes.$size-12px
+
+    .transaction-data
+        display: flex
+        flex-direction: column
+        gap: sizes.$size-4px
+
+        & > .input-wrapper
+            max-width: 500px
+
+    .transaction-actions
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        gap: sizes.$size-4px

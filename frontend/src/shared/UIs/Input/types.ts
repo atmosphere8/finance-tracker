@@ -7,6 +7,7 @@ export interface IInput {
   value?: string
   type?: string
   disabled?: boolean
-  color?: "white" | "transparent"
-  onChange: (value: any) => void
+  color?: "white" | "transparent" | "gray"
+  onChange?: (value: any) => void
+  readOnly?: boolean
 }

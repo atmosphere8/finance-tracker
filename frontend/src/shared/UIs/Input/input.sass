@@ -8,7 +8,6 @@
     width: 100%
     gap: sizes.$size-8px
     padding: sizes.$size-4px sizes.$size-16px
-    border: 1px solid colors.$black
     border-radius: sizes.$size-12px
 
     & > input
@@ -21,8 +20,29 @@
         &::placeholder
             color: colors.$black
 
-        &.white
-            background: colors.$white
+    &.white
+        border: 1px solid colors.$black
+        background: colors.$white
 
-        &.transparent
+        & > input
             background: transparent
+
+    &.transparent
+        border: 1px solid transparent
+        background: transparent
+
+    &.gray
+        border: 1px solid colors.$black
+        background: colors.$gray
+        color: colors.$black
+
+        & > input
+            background: colors.$gray
+
+    &.disabled
+        border: 1px solid colors.$black
+        background: colors.$dark-gray
+        color: colors.$black
+
+        & > input
+            background: colors.$dark-gray

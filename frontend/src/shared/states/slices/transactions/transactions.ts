@@ -1,10 +1,10 @@
 //imports
 import slice from "$helpers/redux/slice/slice"
 import axios from "axios"
-import { PayloadAction } from "@reduxjs/toolkit"
 
 //types
-import { ITransaction, ITransactions } from "./types"
+import { ITransactions } from "./types"
+import { ITransaction } from "$entities/Transaction/types"
 
 const initial_state: ITransactions = {
   data: [] as ITransaction[]
@@ -36,6 +36,12 @@ const transactions = slice({
     create: create.asyncThunk((value: string) => {
       return axios
         .post(`http://localhost:3002/transaction/create`, { value })
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+    }),
+    update: create.asyncThunk(({ id, value }: { id: string; value: string }) => {
+      return axios
+        .patch(`http://localhost:3002/transaction/update/${id}`, { value })
         .then(res => console.log(res))
         .catch(error => console.log(error))
     })
