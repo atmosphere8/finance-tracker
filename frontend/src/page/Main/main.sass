@@ -1,0 +1,34 @@
+@use "$styles/colors.sass" as colors
+@use "$styles/sizes.sass" as sizes
+
+.main-page
+    background: colors.$white
+    display: flex
+    gap: sizes.$size-20px
+    padding: sizes.$size-32px
+
+    .history-container
+        flex: 1
+
+    .chart-and-actions-container
+        flex: 1
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: sizes.$size-16px
+
+        .chart
+            height: 600px
+            background: colors.$quaternary
+            width: 100%
+
+        .actions-container
+            display: flex
+            flex-direction: column
+            width: 100%
+            gap: sizes.$size-16px
+
+            & > div
+                display: flex
+                gap: sizes.$size-32px
+                width: 100%

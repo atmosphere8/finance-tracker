@@ -1,0 +1,46 @@
+services:
+  frontend:
+    ports:
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    build:
+      context: ./frontend
+      args:
+        FRONTEND_PORT: ${FRONTEND_PORT}
+        NODE_VERSION: ${NODE_VERSION}
+    env_file:
+      - .env
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+
+  api:
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    build:
+      context: ./api
+      args:
+        API_PORT: ${API_PORT}
+        NODE_VERSION: ${NODE_VERSION}
+
+    env_file:
+      - .env
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "${MONGO_PORT}:${MONGO_PORT}"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+
+volumes:
+  mongo-data:
+    driver: local

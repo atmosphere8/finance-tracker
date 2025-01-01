@@ -1,0 +1,28 @@
+@use '$styles/colors' as colors
+@use '$styles/sizes' as sizes 
+
+.input-wrapper
+    display: flex
+    align-items: center
+    height: sizes.$size-32px
+    width: 100%
+    gap: sizes.$size-8px
+    padding: sizes.$size-4px sizes.$size-16px
+    border: 1px solid colors.$black
+    border-radius: sizes.$size-12px
+
+    & > input
+        display: flex
+        width: 100%
+        justify-content: space-between
+        align-items: center
+        text-overflow: ellipsis
+
+        &::placeholder
+            color: colors.$black
+
+        &.white
+            background: colors.$white
+
+        &.transparent
+            background: transparent
