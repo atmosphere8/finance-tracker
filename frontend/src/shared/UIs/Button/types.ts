@@ -1,7 +1,7 @@
 //imports
 import * as PhosphorIcons from "@phosphor-icons/react"
 
-export interface IButton {
+export type PropsType = {
   icon?: keyof typeof PhosphorIcons
   text?: string
   disabled?: boolean

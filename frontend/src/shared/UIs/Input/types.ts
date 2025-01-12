@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
 
-export interface IInput {
+export type PropsType = {
   components_right?: ReactElement[]
   components_left?: ReactElement[]
   placeholder?: string

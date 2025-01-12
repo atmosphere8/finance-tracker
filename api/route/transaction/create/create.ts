@@ -5,9 +5,9 @@ import { Request, Response } from "express"
 import TransactionModel from "../../../shared/models/Transaction/Transaction"
 
 const create = (req: Request, res: Response) => {
-  const { value } = req.body
+  const { value, option } = req.body
 
-  TransactionModel.create({ value })
+  TransactionModel.create({ value, option })
     .then(transaction =>
       res.status(200).json({ status: "Success", message: "Transaction created!", data: transaction })
     )

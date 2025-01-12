@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react"
 import "./input.sass"
 
 //types
-import { IInput } from "./types"
+import { PropsType } from "./types"
 
 //icons
 import { PencilSimpleSlash, Prohibit } from "@phosphor-icons/react"
@@ -20,7 +20,7 @@ export default ({
   type = "text",
   readOnly = false,
   onChange
-}: IInput) => {
+}: PropsType) => {
   return (
     <div className={`input-wrapper ${color} ${disabled ? "disabled" : ""}`}>
       {components_left.map((component, index) => React.cloneElement(component, { key: index }))}

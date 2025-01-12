@@ -6,10 +6,10 @@ import * as PhosphorIcons from "@phosphor-icons/react"
 import "./button.sass"
 
 //types
-import { IButton } from "./types"
+import { PropsType } from "./types"
 import { IconProps } from "@phosphor-icons/react"
 
-export default ({ text = "", icon = "AndroidLogo", onClick, disabled = false, color = "transparent" }: IButton) => {
+export default ({ text = "", icon, onClick, disabled = false, color = "transparent" }: PropsType) => {
   const [Icon, setIcon] = useState<React.ComponentType<IconProps> | null>(null)
 
   useEffect(() => {

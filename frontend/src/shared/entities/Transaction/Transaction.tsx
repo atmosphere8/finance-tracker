@@ -1,12 +1,13 @@
 //imports
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useDispatch } from "$helpers/redux/hooks/hooks"
 
 //styles
 import "./transaction.sass"
 
 //types
-import { ITransaction } from "./types"
+import { TransactionPropsType } from "$types/transaction/props"
+import { TransactionOptionEnum } from "$types/transaction/options"
 
 //shared components
 import { Button, Input } from "$uis"
@@ -14,10 +15,7 @@ import { Button, Input } from "$uis"
 //actions
 import { transactions_actions } from "$slices/transactions/transactions"
 
-//icons
-import { GenderFemale, PencilSimple, PencilSimpleSlash, Prohibit } from "@phosphor-icons/react"
-
-export default ({ value, _id }: ITransaction) => {
+export default ({ value, _id, option }: TransactionPropsType) => {
   const [edit_mode, set_edit_mode] = useState(false)
   const [edited_value, set_edited_value] = useState(value)
   const dispatch = useDispatch()
@@ -49,6 +47,13 @@ export default ({ value, _id }: ITransaction) => {
           readOnly={!edit_mode}
         />
         <Input value={`ID: ${_id}`} disabled />
+        {option === TransactionOptionEnum.income ? (
+          <p className="text-green text-regular">Income</p>
+        ) : option === TransactionOptionEnum.expense ? (
+          <p className="text-red-secondary text-regular">Expense</p>
+        ) : (
+          ""
+        )}
       </div>
       <div className="transaction-actions">
         {!edit_mode ? (

@@ -1,0 +1,35 @@
+@use "$styles/colors.sass" as colors
+@use "$styles/sizes.sass" as sizes
+
+.select
+    width: 100%
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+
+    & > .button
+        width: 100%
+
+    .select-content
+        min-width: 300px
+        display: flex
+        flex-direction: column
+        gap: sizes.$size-8px
+        top: calc( 100% + sizes.$size-2px )
+        position: absolute
+        padding: sizes.$size-16px
+        background: colors.$white
+        border: 1px solid colors.$gray
+        border-radius: sizes.$size-12px
+        opacity: 0
+        transition: 0.3s opacity
+        pointer-events: none
+
+        &.active
+            opacity: 1
+            transition: 0.3s opacity, 0.3s
+            pointer-events: all
+
+        & > .button
+            width: 100%
